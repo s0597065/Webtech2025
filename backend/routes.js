@@ -102,7 +102,7 @@ router.patch('/book/:id', async(req, res) => {
 router.delete('/book/:id', async(req, res) => {
     try {
         await Book.deleteOne({ _id: req.params.id })
-        res.status(204).send()
+        res.json({ message: "Book deleted successfully" });
     } catch {
         res.status(404)
         res.send({ error: "Das Buch ist noch nicht im Regal" })
