@@ -1,0 +1,49 @@
+<div class="container mt-5">
+    <div class="card mb-3" style="max-width: 600px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img [src]="book.coverURL || 'assets/placeholder.jpg'" 
+               class="img-fluid rounded-start" 
+               [alt]="book.title">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ book.title }}</h5>
+            <p class="card-text"><strong>Autor:</strong> {{ book.author }}</p>
+            <p class="card-text"><strong>Genre:</strong> {{ book.genre }}</p>
+            <p class="card-text"><strong>Status:</strong> {{ book.status }}</p>
+            <p class="card-text"><strong>Rating:</strong> {{ book.rating }}</p>
+
+            <p class="card-text"><strong>Seiten insgesamt:</strong> {{ book.pagesTotal }}</p>
+          <p class="card-text"><strong>Gelesene Seiten:</strong> {{ book.pagesRead }}</p>
+          <p class="card-text"><strong>Notizen:</strong> {{ book.notes }}</p>
+
+          <p class="card-text">
+            <strong>Seiten:</strong> {{ book.pagesRead }} / {{ book.pagesTotal }}
+          </p>
+          
+          <div class="progress mt-2" style="height: 20px;">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              [style.width.%]="progress"
+              [attr.aria-valuenow]="progress"
+              aria-valuemin="0"
+              [attr.aria-valuemax]="book.pagesTotal">
+              {{ progress }} %
+            </div>
+          </div>
+          
+            
+            <div class="mt-3">
+              <a [routerLink]="['/book', book._id, 'edit']" class="btn btn-primary me-2">
+                Bearbeiten
+              </a>
+              <a [routerLink]="['/regal']" class="btn btn-secondary">Zurück</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

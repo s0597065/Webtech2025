@@ -1,0 +1,9 @@
+.logo-container {
+    background-color: #f6eaee;
+    height: 100px;
+}
+
+.logo {
+    width: 170px;
+    height: auto; 
+}

@@ -1,0 +1,51 @@
+/* Modal Overlay - halbtransparent */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+}
+
+/* Modal Dialog */
+.modal-dialog {
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    width: 400px;
+    max-width: 90%;
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Modal Content Padding */
+.modal-content {
+    padding: 1.5rem;
+}
+
+/* Header / Footer Styling */
+.modal-header, .modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-footer {
+    margin-top: 1rem;
+}
+
+/* Slide Down Animation */
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Blurred background when modal is active */
+.container.blurred {
+    filter: blur(2px);
+    pointer-events: none;
+}

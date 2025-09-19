@@ -1,0 +1,127 @@
+<main class="d-flex min-vh-100">
+    <fieldset class="container  mt-5">
+
+      @if(book) {
+        <legend class="mb-4">Eintrag von {{ book.title }} {{ book.author }} aktualisieren
+        </legend>
+      } @else {
+        <legend class="mb-4">Eintrag aktualisieren</legend>
+      }
+      <form [formGroup]="form" (ngSubmit)="update()">
+        <div class="mb-3 row">
+          <label class="col-2 col-form-label" for="title">Titel</label>
+          <div class="col-10">
+            <input type="text" class="form-control" id="title" placeholder="Titel"
+            formControlName="titleControl" />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label class="col-2 col-form-label" for="author">Autor</label>
+          <div class="col-10">
+            <input type="text" class="col-10 form-control" id="author" placeholder="Autor"
+            formControlName="authorControl" />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label class="col-2 col-form-label" for="genre">Genre</label>
+          <div class="col-10">
+            <input type="text" class="col-10 form-control" id="genre" placeholder="Genre" formControlName="genreControl" />
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label class="col-2 col-form-label" for="cover">Cover URL</label>
+          <div class="col-10">
+            <input type="text" class="form-control" id="cover" placeholder="Bild-URL"
+                   formControlName="coverControl">
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label class="col-2 col-form-label" for="status">Status</label>
+          <div class="col-10">
+            <select id="status" 
+                    class="form-select" 
+                    formControlName="statusControl"
+                    [class.is-invalid]="form.controls.statusControl.invalid && form.controls.statusControl.touched"
+                    [class.is-valid]="form.controls.statusControl.valid && form.controls.statusControl.touched"
+                    required>
+              <option value="" disabled>Bitte wählen...</option>
+              <option value="möchte lesen">möchte lesen</option>
+              <option value="lese gerade">lese gerade</option>
+              <option value="gelesen">gelesen</option>
+            </select>
+            <div class="invalid-feedback">
+              Bitte Status auswählen!
+            </div>
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label class="col-2 col-form-label" for="rating">Rating</label>
+          <div class="col-10">
+            <select class="form-select" id="rating" formControlName="ratingControl"
+                    [class.is-invalid]="form.controls.ratingControl.invalid && form.controls.ratingControl.touched">
+              <option value="" disabled>Bitte auswählen</option>
+              <option value="nicht sicher">Nicht sicher</option>
+              <option value="⭐">⭐</option>
+              <option value="⭐⭐">⭐⭐</option>
+              <option value="⭐⭐⭐">⭐⭐⭐</option>
+              <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+              <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+            </select>
+            <div class="invalid-feedback">
+              Bitte ein Rating auswählen!
+            </div>
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label class="col-2 col-form-label" for="pagesTotal">Gesamtseiten</label>
+          <div class="col-10">
+            <input type="number"
+                   id="pagesTotal"
+                   formControlName="pagesTotalControl"
+                   class="form-control"
+                   min="1"
+                   required/>
+      
+          </div>
+        </div>
+        
+        <div class="mb-3 row">
+          <label class="col-2 col-form-label" for="pagesRead">Gelesene Seiten</label>
+          <div class="col-10">
+            <input type="number"
+                   id="pagesRead"
+                   formControlName="pagesReadControl"
+                   class="form-control"
+                   min="0"
+                   [max]="form.controls.pagesTotalControl.value"
+                   required/>
+        
+            @if(form.controls.pagesReadControl.invalid && form.controls.pagesReadControl.touched) {
+              <div class="invalid-feedback">
+                @if(form.controls.pagesReadControl.errors?.['required']) {
+                  Bitte angeben wie viele Seiten gelesen wurden!
+                } @else if(form.controls.pagesReadControl.errors?.['max']) {
+                  Gelesene Seiten dürfen nicht größer sein als die Gesamtseiten!
+                }
+              </div>
+            }
+          </div>
+        </div>
+        
+        
+        <div class="mb-3">
+          <label for="notes" class="form-label">Notizen </label>
+          <textarea id="notes"
+                    class="form-control"
+                    placeholder="Notizen zum Buch"
+                    formControlName="notesControl"></textarea>
+        </div>
+                  
+        <div class="row gx-0 mt-5">
+          <button type="submit" class="col-5 btn btn-secondary">Aktualisieren</button>
+          <div class="col-2"></div>
+          <button type="button" class="col-5 btn btn-secondary" (click)="cancel() ">Abbrechen</button>
+        </div>
+      </form>
+    </fieldset>
+  </main>
