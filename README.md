@@ -24,9 +24,11 @@ Literary Love ist ein Paradies für alle Buchliebhaber. Die persönliche Bibliot
 ### Startseite
 ![startseite](./screenshots/startseite.png)
 
-Regal
+### Regal
+![regal](./screenshots/regal.png)
 
 Regal mit offenem Buch
+![regal mit offenem Buch](./screenshots/regal.png)
 
 Details
 
