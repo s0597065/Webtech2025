@@ -83,9 +83,9 @@ Dies sollte man schon installiert haben:
 - MongoDB
 
 ### Respository clonen
-'''
-git clone 
-'''
+´´´
+git clone https://github.com/s0597065/Webtech2025.git
+´´´
 ### Frontend Einrichtung
 
 ### Backend Einrichtung 
