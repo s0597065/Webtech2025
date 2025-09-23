@@ -80,12 +80,15 @@ Dies sollte man schon installiert haben:
 
 - Angular
 - Node.js
-- MongoDB
+- MongoDB (Atlas oder lokal)
 
 ### Respository clonen
-´´´
+```
+
 git clone https://github.com/s0597065/Webtech2025.git
-´´´
+cd Webtech2025
+
+```
 ### Frontend Einrichtung
 
 ### Backend Einrichtung 
