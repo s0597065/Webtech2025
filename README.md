@@ -28,23 +28,51 @@ Literary Love ist ein Paradies für alle Buchliebhaber. Die persönliche Bibliot
 ![regal](./screenshots/regal.png)
 
 Regal mit offenem Buch
-![regal mit offenem Buch](./screenshots/regal.png)
+![regalBuchAuf](./screenshots/regalBuchAuf.png)
 
-Details
+### Details
+![details](./screenshots/details.png)
 
-Buch bearbeiten
+### Buch bearbeiten
+![bearbeiten](./screenshots/bearbeiten.png)
 
-Neues Buch hinzufügen
+### Neues Buch hinzufügen
+![hinzufuegen](./screenshots/hinzufuegen.png)
 
 Buch hinzugefügt Anzeige
+![hinzufuegenAnzeige](./screenshots/hinzufuegenAnzeige.png)
 
-Nach Buch filtern
+### Nach Buch filtern
+Suchfunktion
+![suchfunktion](./screenshots/suchfunktion.png)
 
-Buch löschen
+Filtern nach Status
+![filterStatus](./screenshots/filterStatus.png)
+
+Filtern nach Rating
+![filterRating](./screenshots/filterRating.png)
+
+### Buch löschen
+![loeschen](./screenshots/loeschen.png)
 
 Buch gelöscht Anzeige
+![loeschenAnzeige](./screenshots/loeschenAnzeige.png)
 
-Inspiration
+### Inspiration
+![inspiration](./screenshots/inspiration.png)
+
+Inspiration Anzeige
+![inspirationAnzeige](./screenshots/inspirationAnzeige.png)
+
+###Mobile Version
+Regal für Tablett
+![regalZwei](./screenshots/regalZwei.png)
+
+Regal für Smartphone
+![regalEins](./screenshots/regalEins.png)
+
+Details in mobiler Version
+![detailsMobil](./screenshots/detailsMobil.png)
 
 ## Installation
 
