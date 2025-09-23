@@ -31,7 +31,7 @@ Regal mit offenem Buch
 ![regalBuchAuf](./screenshots/regalBuchAuf.png)
 
 ### Details
-![details](./screenshots/details.png)
+![detailsBuch](./screenshots/detailsBuch.png)
 
 ### Buch bearbeiten
 ![bearbeiten](./screenshots/bearbeiten.png)
@@ -62,17 +62,15 @@ Buch gelöscht Anzeige
 ![inspiration](./screenshots/inspiration.png)
 
 Inspiration Anzeige
-![inspirationAnzeige](./screenshots/inspirationAnzeige.png)
+![inspirationBuchHinzugefuegtAnzeige](./screenshots/inspirationBuchHinzugefuegtAnzeige.png)
 
-###Mobile Version
+### Mobile Version
 Regal für Tablett
 ![regalZwei](./screenshots/regalZwei.png)
 
 Regal für Smartphone
 ![regalEins](./screenshots/regalEins.png)
 
-Details in mobiler Version
-![detailsMobil](./screenshots/detailsMobil.png)
 
 ## Installation
 
