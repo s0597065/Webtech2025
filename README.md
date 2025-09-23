@@ -89,9 +89,44 @@ git clone https://github.com/s0597065/Webtech2025.git
 cd Webtech2025
 
 ```
-### Frontend Einrichtung
+### Backend Einrichtung
+In backend Ordner wechseln
+```
 
-### Backend Einrichtung 
+cd backend
+
+```
+```
+
+npm install
+
+```
+Server starten
+```
+
+node server.js
+
+```
+### Frontend Einrichtung 
+
+in Semesteraufgabe Ordner wechseln
+```
+
+cd ../Semesteraufgabe
+
+```
+
+```
+
+npm install
+
+```
+Frontend starten
+```
+
+ng serve
+
+```
 
 ## Nützliche Videos, Artikel, Webseiten
 - Für das Aufklappen des Buches hat mir diese Webseite geholfen: [hier](https://uiverse.io/eslam-hany/selfish-bobcat-73)
