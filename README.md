@@ -74,7 +74,23 @@ Regal für Smartphone
 
 ## Installation
 
-## Mützliche Videos, Artikel, Webseiten
+### Voraussetzungen
+
+Dies sollte man schon installiert haben:
+
+- Angular
+- Node.js
+- MongoDB
+
+### Respository clonen
+'''
+git clone 
+'''
+### Frontend Einrichtung
+
+### Backend Einrichtung 
+
+## Nützliche Videos, Artikel, Webseiten
 - Für das Aufklappen des Buches hat mir diese Webseite geholfen: [hier](https://uiverse.io/eslam-hany/selfish-bobcat-73)
 
 - Für die Suchfunktion hat mir dieser Artikel geholfen: [hier](https://v17.angular.io/tutorial/first-app/first-app-lesson-13)
