@@ -1,179 +1,136 @@
 @if(saved) {
-  <div class="toast show mb-3" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-body">
-      Neuer Eintrag {{ book.title }} {{ book.author }} gespeichert.
-      <button type="button" class="btn btn-success btn-sm ms-2" (click)="confirm()">Ok</button>
+  <div class="anzeige-overlay">
+    <div class="anzeige-dialog">
+        <div class="anzeige-content" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="anzeige-header">
+            <h5 class="anzeige-title">Erfolgreich hinzugefügt</h5>
+          </div>
+            <div class="anzeige-body">
+             <p>{{ book.title }} von {{ book.author }} wurde im Regal hinzugefügt. </p>
+            </div>
+            <div class="anzeige-footer">
+              <button type="button" class="btn" (click)="confirm()">Ok</button>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
+} 
 
+@else {
+  <main class="d-flex min-vh-100">
+    <fieldset class="container">
 
-} @else {
-
-    <main class="d-flex min-vh-100">
-      <fieldset class="container mt-5">
-
-      <legend class="mb-4">Neues Buch hinzufügen</legend>
+      <legend class="mb-4">Neues Buch ins Regal hinzufügen</legend>
       <form [formGroup]="form" (ngSubmit)="create()">
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label" for="title">Titel</label>
-          <div class="col-10">
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="title" class="form-label">Titel</label>
             <input 
-                type="text" 
-                class="form-control" 
-                id="title" 
-                placeholder="Titel"
-                formControlName="titleControl" 
-                [class.is-invalid]="form.controls.titleControl.invalid && form.controls.titleControl.touched"
-                [class.is-valid]="form.controls.titleControl.valid && form.controls.titleControl.touched"
-                required/>
-                <div class="invalid-feedback">
-                    Bitte Titel eingeben!
-                </div>
+              type="text" id="title" class="form-control" placeholder="Titel" formControlName="titleControl"
+              [class.is-invalid]="form.controls.titleControl.invalid && form.controls.titleControl.touched"
+              [class.is-valid]="form.controls.titleControl.valid && form.controls.titleControl.touched"
+              required>
+            <div class="invalid-feedback">Bitte Titel eingeben!</div>
+          </div>
+          <div class="col-md-6">
+            <label for="author" class="form-label">Autor</label>
+            <input type="text" id="author" class="form-control" placeholder="Autor" formControlName="authorControl"
+              [class.is-invalid]="form.controls.authorControl.invalid && form.controls.authorControl.touched"
+              [class.is-valid]="form.controls.authorControl.valid && form.controls.authorControl.touched"
+              required>
+            <div class="invalid-feedback">Bitte Autor eingeben!</div>
           </div>
         </div>
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label" for="author">Autor</label>
-          <div class="col-10">
-            <input type="text" class="col-10 form-control" id="author" placeholder="Autor"
-            formControlName="authorControl" 
-            [class.is-invalid]="form.controls.authorControl.invalid && form.controls.authorControl.touched" 
-            [class.is-valid]="form.controls.authorControl.valid && form.controls.authorControl.touched"
-            required/>
-            <div class="invalid-feedback">
-                Bitte Autor eingeben!
-            </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="genre" class="form-label">Genre</label>
+            <input type="text" id="genre" class="form-control" placeholder="Genre" formControlName="genreControl"
+              [class.is-invalid]="form.controls.genreControl.invalid && form.controls.genreControl.touched"
+              [class.is-valid]="form.controls.genreControl.valid && form.controls.genreControl.touched"
+              required>
+            <div class="invalid-feedback">Bitte Genre eingeben!</div>
           </div>
-        </div>
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label" for="genre">Genre</label>
-          <div class="col-10">
-            <input type="text" class="col-10 form-control" id="genre" placeholder="Genre"
-            formControlName="genreControl" 
-            [class.is-invalid]="form.controls.genreControl.invalid && form.controls.genreControl.touched"
-            [class.is-valid]="form.controls.genreControl.valid && form.controls.genreControl.touched"
-            required/>
-            <div class="invalid-feedback">
-                Bitte Genre eingeben!
-            </div>
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label" for="cover">Cover URL</label>
-          <div class="col-10">
-            <input type="text" class="form-control" id="cover" placeholder="https://..."
-              formControlName="coverControl"
+          <div class="col-md-6">
+            <label for="cover" class="form-label">Cover URL</label>
+            <input type="text" id="cover" class="form-control" placeholder="https://..." formControlName="coverControl"
               [class.is-invalid]="form.controls.coverControl.invalid && form.controls.coverControl.touched"
               [class.is-valid]="form.controls.coverControl.valid && form.controls.coverControl.touched"
-              required/>
-              <div class="invalid-feedback">
-                Bitte Url eingeben!
-            </div>
+              required>
+            <div class="invalid-feedback">Bitte Url eingeben!</div>
           </div>
         </div>
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label" for="status">Status</label>
-          <div class="col-10">
-            <select id="status" 
-                    class="form-select" 
-                    formControlName="statusControl"
-                    [class.is-invalid]="form.controls.statusControl.invalid && form.controls.statusControl.touched"
-                    [class.is-valid]="form.controls.statusControl.valid && form.controls.statusControl.touched"
-                    required>
+
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label for="status" class="form-label">Status</label>
+            <select id="status" class="form-select" formControlName="statusControl"
+              [class.is-invalid]="form.controls.statusControl.invalid && form.controls.statusControl.touched"
+              [class.is-valid]="form.controls.statusControl.valid && form.controls.statusControl.touched"
+              required>
               <option value="" disabled>Bitte wählen...</option>
               <option value="möchte lesen">möchte lesen</option>
               <option value="lese gerade">lese gerade</option>
               <option value="gelesen">gelesen</option>
             </select>
-            <div class="invalid-feedback">
-              Bitte Status auswählen!
-            </div>
+            <div class="invalid-feedback">Bitte Status auswählen!</div>
           </div>
-        </div>
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label" for="rating">Rating</label>
-          <div class="col-10">
-            <select class="form-select" id="rating" formControlName="ratingControl" 
-                    [class.is-invalid]="form.controls.ratingControl.invalid && form.controls.ratingControl.touched"
-                    required>
+          <div class="col-md-3">
+            <label for="rating" class="form-label">Rating</label>
+            <select id="rating" class="form-select" formControlName="ratingControl"
+              [class.is-invalid]="form.controls.ratingControl.invalid && form.controls.ratingControl.touched"
+              [class.is-valid]="form.controls.ratingControl.valid && form.controls.ratingControl.touched"
+              required>
               <option value="" disabled selected>Bitte auswählen</option>
-              <option value="nicht sicher">Nicht sicher</option>
+              <option value="weiß nicht">weiß nicht</option>
               <option value="⭐">⭐</option>
               <option value="⭐⭐">⭐⭐</option>
               <option value="⭐⭐⭐">⭐⭐⭐</option>
               <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
               <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
             </select>
-            <div class="invalid-feedback">
-              Bitte ein Rating auswählen!
-            </div>
+            <div class="invalid-feedback">Bitte ein Rating auswählen!</div>
           </div>
-        </div>
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label" for="pagesTotal">Gesamtseiten</label>
-          <div class="col-10">
-            <input type="number"
-                   id="pagesTotal"
-                   formControlName="pagesTotalControl"
-                   class="form-control"
-                   min="1"
-                   required
-                   [class.is-invalid]="form.controls.pagesTotalControl.invalid && form.controls.pagesTotalControl.touched"
-                   [class.is-valid]="form.controls.pagesTotalControl.valid && form.controls.pagesTotalControl.touched"/>
-            @if(form.controls.pagesTotalControl.invalid && form.controls.pagesTotalControl.touched) {
-              <div class="invalid-feedback">
-                Bitte Seitenanzahl des Buches eingeben!
-              </div>
-            }
+          <div class="col-md-3">
+            <label for="pagesTotal" class="form-label">Gesamtseiten</label>
+            <input type="number" id="pagesTotal" class="form-control" formControlName="pagesTotalControl" min="1"
+              [class.is-invalid]="form.controls.pagesTotalControl.invalid && form.controls.pagesTotalControl.touched"
+              [class.is-valid]="form.controls.pagesTotalControl.valid && form.controls.pagesTotalControl.touched"
+              required>
+            <div class="invalid-feedback">Bitte Seitenanzahl eingeben!</div>
           </div>
-        </div>
-        
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label" for="pagesRead">Gelesene Seiten</label>
-          <div class="col-10">
-            <input type="number"
-                   id="pagesRead"
-                   formControlName="pagesReadControl"
-                   class="form-control"
-                   min="0"
-                   [max]="form.controls.pagesTotalControl.value"
-                   required
-                   [class.is-invalid]="form.controls.pagesReadControl.invalid && form.controls.pagesReadControl.touched"
-                   [class.is-valid]="form.controls.pagesReadControl.valid && form.controls.pagesReadControl.touched"/>
-            
+          <div class="col-md-3">
+            <label for="pagesRead" class="form-label">Gelesene Seiten</label>
+            <input type="number" id="pagesRead" class="form-control" formControlName="pagesReadControl" min="0" [max]="form.controls.pagesTotalControl.value"
+              [class.is-invalid]="form.controls.pagesReadControl.invalid && form.controls.pagesReadControl.touched"
+              [class.is-valid]="form.controls.pagesReadControl.valid && form.controls.pagesReadControl.touched"
+              required>
             @if(form.controls.pagesReadControl.errors?.['required'] && form.controls.pagesReadControl.touched) {
-              <div class="invalid-feedback">
-                Bitte angeben wie viele Seiten gelesen wurden!
-              </div>
+              <div class="invalid-feedback">Bitte angeben wie viele Seiten gelesen wurden!</div>
             }
             @if(form.controls.pagesReadControl.errors?.['max'] && form.controls.pagesReadControl.touched) {
-              <div class="invalid-feedback">
-                Gelesene Seiten dürfen nicht größer sein als die Gesamtseiten!
-              </div>
+              <div class="invalid-feedback">Gelesene Seiten dürfen nicht größer sein als die Gesamtseiten!</div>
             }
           </div>
         </div>
-        
-        
+
+
         <div class="mb-3">
           <label for="notes" class="form-label">Notizen</label>
-          <textarea id="notes"
-                    class="form-control"
-                    placeholder="Notizen zum Buch"
-                    formControlName="notesControl"
-                    [class.is-invalid]="form.controls.notesControl.invalid && form.controls.notesControl.touched"
-                    required></textarea>
-          <div class="invalid-feedback">
-            Bitte Notizen eingeben!
-          </div>
-        </div>    
+          <textarea id="notes" class="form-control" placeholder="Notizen zum Buch" formControlName="notesControl"
+            [class.is-invalid]="form.controls.notesControl.invalid && form.controls.notesControl.touched"
+            [class.is-valid]="form.controls.notesControl.valid && form.controls.notesControl.touched"
+            required></textarea>
+          <div class="invalid-feedback">Bitte Notizen eingeben!</div>
+        </div>
 
-        <div class="row gx-0 mt-5">
-          <button type="submit" class="col-5 btn btn-secondary">Neuen Eintrag speichern</button>
-          <div class="col-2"></div>
-          <button type="button" class="col-5 btn btn-secondary" (click)="cancel()">Abbrechen</button>
+        <!-- Buttons -->
+        <div class="d-flex justify-content-between mt-5">
+          <button type="submit" class="btn btn-primary">Buch hinzufügen</button>
+          <button type="button" class="btn btn-secondary" (click)="cancel()">Abbrechen</button>
         </div>
       </form>
     </fieldset>
   </main>
-
 }

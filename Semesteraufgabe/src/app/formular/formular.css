@@ -1,0 +1,84 @@
+/* Allgemeines Layout */
+main {
+    background-color: #cebcc7;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 10px;
+  }
+  
+  fieldset {
+    background: #f6eaee;
+    border: none;
+    padding: 30px;
+    width: 100%;
+    max-width: 1250px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    color: #34272d;
+  }
+  
+
+  legend {
+    font-size: 27px;
+    font-weight: bold;
+    color: #34272d;
+    border-bottom: 2px solid #72616a;
+    padding-bottom: 10px;
+  }
+  
+
+  label {
+    font-weight: 600;
+    color: #72616a;
+  }
+  
+
+  .form-control, 
+  .form-select, 
+  textarea {
+    border: 1px solid #72616a;
+    border-radius: 0;
+    background-color: #fff;
+    padding: 9px;
+    color: #34272d;
+  }
+  
+  .form-control:focus, 
+  .form-select:focus, 
+  textarea:focus {
+    box-shadow: none;
+    border: 2px solid #34272d;
+  }
+  
+
+  .btn {
+    background-color: #72616a;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    padding: 10px 30px;
+    font-weight: bold;
+  }
+  
+  .btn:hover {
+    background-color: #f6eaee;
+    color: #34272d;
+    border: 1px solid #34272d;
+  }
+  
+
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  .invalid-feedback {
+    color: #34272d;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 450px) {
+    .btn {
+      padding: 8px 20px; /* kleinerer Innenabstand */
+      font-size: 15px; /* etwas kleinere Schrift */
+    }
+  }

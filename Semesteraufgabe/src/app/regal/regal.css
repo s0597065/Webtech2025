@@ -1,51 +1,225 @@
-/* Modal Overlay - halbtransparent */
-.modal-overlay {
+/*gesamte Teil*/
+
+.container-fluid {
+    background-color: #cebcc7;
+      min-height: 100vh; /* nimmt immer volle Bildschirmhöhe */
+      background-color: #cebcc7;
+      padding-bottom: 50px;
+      padding-top: 30px;
+}
+    
+
+/*Umrandung von Buch*/
+.block {
+  padding: 50px;
+  background-color: #72616a;
+}
+
+/* From Uiverse.io by eslam-hany */ 
+.book {
+    position: relative;
+    width: 215px;
+    height: 350px;
+    background-color: #f6eaee;
+    -webkit-box-shadow: 1px 1px 12px #000;
+    box-shadow: 1px 1px 12px #000;
+    -webkit-transform: preserve-3d;
+    -ms-transform: preserve-3d;
+    transform: preserve-3d;
+    -webkit-perspective: 2000px;
+    perspective: 2000px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    color: #34272d;
+  }
+  
+  .cover {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transform-origin: 0;
+    -ms-transform-origin: 0;
+    transform-origin: 0;
+    -webkit-box-shadow: 1px 1px 12px #000;
+    box-shadow: 1px 1px 12px #000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+
+  .cover img {
+    width:100%; 
+    height:100%; 
+    object-fit: cover;
+  }
+  
+  .book:hover .cover {
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transform: rotatey(-80deg);
+    -ms-transform: rotatey(-80deg);
+    transform: rotatey(-99deg);
+  }
+  
+  /* Titel */
+  .book-info h5 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #34272d;
+  }
+  
+  /* Textdetails */
+  .book-info p {
+    font-size: 15px;
+    color: #4a3c42;
+    font-weight: bolder;
+  }
+  
+  .book-info p strong {
+    color: #72616a;
+    font-weight: 600;
+  }
+  
+  /* Buttons */
+  .book-info .d-flex {
+    margin-top: 25px;
+  }
+  
+  /* Mehr zum Buch */
+.btn {
+    background-color: #72616a;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    padding: 5px 10px;
+    font-size: 13px;
+    margin-right: 5px;
+  }
+  
+  .btn:hover {
+    background-color: #f6eaee;
+    color: #34272d;
+    border: 1px solid #34272d;
+  }
+  
+  /* Trash */
+  .btn-icon {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    color: #34272d;
+    padding: 5px 8px;
+  }
+  
+  .btn-icon:hover {
+    border: 1px solid #34272d;
+  }
+
+
+
+  .anzeige-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1050;
+  
+  }
+
+
+.anzeige-dialog {
+  background: #f6eaee; 
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  width: 420px;
 }
 
-/* Modal Dialog */
-.modal-dialog {
-    background: #fff;
-    border-radius: 0.5rem;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    width: 400px;
-    max-width: 90%;
-    animation: slideDown 0.3s ease-out;
+
+.anzeige-content {
+  padding: 30px;
+  color: #34272d;
 }
 
-/* Modal Content Padding */
-.modal-content {
-    padding: 1.5rem;
+
+.anzeige-header {
+  margin-bottom: 20px;
 }
 
-/* Header / Footer Styling */
-.modal-header, .modal-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.anzeige-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
 }
 
-.modal-footer {
-    margin-top: 1rem;
+
+.anzeige-body p {
+  font-size: 16px;
+  line-height: 1.5;
 }
 
-/* Slide Down Animation */
-@keyframes slideDown {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+/* Buttons */
+.anzeige-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
 }
 
-/* Blurred background when modal is active */
-.container.blurred {
-    filter: blur(2px);
-    pointer-events: none;
+.btn {
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
 }
+
+.form-control, 
+.form-select {
+  border: 1px solid #72616a;
+  border-radius: 0;
+  background-color: #fff;
+  padding: 9px;
+  color: #34272d;
+}
+
+.form-control:focus, 
+.form-select:focus {
+  box-shadow: none;
+  border: 2px solid #34272d;
+}
+
+
+  @media (max-width: 800px) {
+    .book-col {
+      flex: 0 0 100%;  /* 1 pro Reihe */
+    }
+  }
+  
+  @media (min-width: 801px) and (max-width: 1200px) {
+    .book-col {
+      flex: 0 0 50%;   /* 2 pro Reihe */
+    }
+  }
+  
+  @media (min-width: 1201px) {
+    .book-col {
+      flex: 0 0 33.33%;  /* 3 pro Reihe */
+    }
+  }
+  

@@ -13,20 +13,19 @@ export class Details implements OnInit{
 
   private bs = inject(Backend)
   private route = inject(ActivatedRoute)
-  book!: Book;
-  id: string | null = ''
+  book!: Book; //enthält Daten des aktuelle Buches
+  id: string | null = '' //Buch-ID
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     console.log('id = ', this.id)
-    this.bs.getOne(this.id!)
-    .then( response => this.book = response )
-    .then( book => console.log('book in DetailComponent : ', book ))   
+    this.bs.getOne(this.id!) 
+    .then( response => this.book = response ) //speichert
+    .then( book => console.log('book in Details : ', book ))   
   }
 
   get progress(): number {
-    if (!this.book || !this.book.pagesTotal) return 0;
-    return Math.min(100, Math.round((this.book.pagesRead / this.book.pagesTotal) * 100));
+    return Math.round((this.book.pagesRead / this.book.pagesTotal) * 100);
   }
   
 

@@ -1,0 +1,124 @@
+.start {
+    background-color: #cebcc7;
+    padding: 30px 20px;
+    color: #34272d;
+  }
+  
+  .inspiration-container {
+    background-color: #f6eaee;
+    padding: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .inspiration-container h2 {
+    margin-bottom: 20px;
+  }
+  
+  .book-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+
+  .btn {
+    margin-top: 10px;
+    background-color: #72616a;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 0;
+    border: none;
+  }
+  
+  .btn:hover {
+    background-color: #f6eaee;
+    color: #34272d;
+    border: 1px solid #34272d;
+  }
+
+  .anzeige-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  }
+
+
+.anzeige-dialog {
+  background: #f6eaee; 
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  width: 420px;
+}
+
+
+.anzeige-content {
+  padding: 30px;
+  color: #34272d;
+}
+
+
+.anzeige-header {
+  margin-bottom: 20px;
+}
+
+.anzeige-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+}
+
+
+.anzeige-body {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Buttons */
+.anzeige-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+  @media (max-width: 700px) {
+    .book-row {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    img {
+      width: 160px;   
+      height: auto;   
+      margin-bottom: 15px; 
+    }
+
+    p {
+      font-size: 16px;
+    }
+  
+  
+    .btn {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+  }
+  
+
+  

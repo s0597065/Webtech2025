@@ -1,5 +1,4 @@
 .navbar {
-    
     background-color: #9f8f98;
 }
 
@@ -12,6 +11,8 @@
 
 .nav-link {
     color: #34272d;
+    padding: 10px;
+    margin-left: 7px;
 }
 
   
@@ -25,4 +26,10 @@
   border: 1px solid #34272d;
   border-radius: 0 13px 0 20px;
   background-color: #f6eaee;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.navbar-toggler {
+  border-radius: 0;
 }

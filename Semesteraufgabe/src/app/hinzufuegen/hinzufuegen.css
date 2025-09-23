@@ -1,0 +1,137 @@
+/* Allgemeines Layout */
+main {
+    background-color: #cebcc7;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 10px;
+  }
+  
+  fieldset {
+    background: #f6eaee;
+    border: none;
+    padding: 30px;
+    width: 100%;
+    max-width: 1250px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    color: #34272d;
+  }
+  
+
+  legend {
+    font-size: 27px;
+    font-weight: bold;
+    color: #34272d;
+    border-bottom: 2px solid #72616a;
+    padding-bottom: 10px;
+  }
+  
+
+  label {
+    font-weight: 600;
+    color: #72616a;
+  }
+  
+
+  .form-control, 
+  .form-select, 
+  textarea {
+    border: 1px solid #72616a;
+    border-radius: 0;
+    background-color: #fff;
+    padding: 9px;
+    color: #34272d;
+  }
+  
+  .form-control:focus, 
+  .form-select:focus, 
+  textarea:focus {
+    box-shadow: none;
+    border: 2px solid #34272d;
+  }
+  
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  .btn {
+    background-color: #72616a;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    padding: 10px 30px;
+    font-weight: bold;
+  }
+  
+  .btn:hover {
+    background-color: #f6eaee;
+    color: #34272d;
+    border: 1px solid #34272d;
+  }
+
+  .invalid-feedback {
+    color: #34272d;
+    font-weight: bold;
+  }
+  
+
+  .anzeige-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  }
+
+
+.anzeige-dialog {
+  background: #f6eaee; 
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  width: 420px;
+}
+
+
+.anzeige-content {
+  padding: 30px;
+  color: #34272d;
+}
+
+
+.anzeige-header {
+  margin-bottom: 20px;
+}
+
+.anzeige-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+}
+
+
+.anzeige-body {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Buttons */
+.anzeige-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+  
+  @media (max-width: 450px) {
+    button.btn {
+      padding: 8px 20px; /* kleinerer Innenabstand */
+      font-size: 13px; /* etwas kleinere Schrift */
+    }
+  }

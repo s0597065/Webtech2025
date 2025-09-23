@@ -1,127 +1,96 @@
 <main class="d-flex min-vh-100">
-    <fieldset class="container  mt-5">
+  <fieldset class="container">
 
-      @if(book) {
-        <legend class="mb-4">Eintrag von {{ book.title }} {{ book.author }} aktualisieren
-        </legend>
-      } @else {
-        <legend class="mb-4">Eintrag aktualisieren</legend>
-      }
-      <form [formGroup]="form" (ngSubmit)="update()">
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label" for="title">Titel</label>
-          <div class="col-10">
-            <input type="text" class="form-control" id="title" placeholder="Titel"
-            formControlName="titleControl" />
-          </div>
+    @if(book) {
+      <legend class="mb-4">
+        Bucheintrag zu {{ book.title }} von {{ book.author }} aktualisieren
+      </legend>
+    } @else {
+      <legend class="mb-4">Bucheintrag aktualisieren</legend>
+    }
+
+    <form [formGroup]="form" (ngSubmit)="update()">
+
+      <!-- Titel + Autor -->
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="title" class="form-label">Titel</label>
+          <input type="text" class="form-control" id="title" placeholder="Titel" formControlName="titleControl">
         </div>
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label" for="author">Autor</label>
-          <div class="col-10">
-            <input type="text" class="col-10 form-control" id="author" placeholder="Autor"
-            formControlName="authorControl" />
-          </div>
+        <div class="col-md-6">
+          <label for="author" class="form-label">Autor</label>
+          <input type="text" class="form-control" id="author" placeholder="Autor" formControlName="authorControl">
         </div>
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label" for="genre">Genre</label>
-          <div class="col-10">
-            <input type="text" class="col-10 form-control" id="genre" placeholder="Genre" formControlName="genreControl" />
-          </div>
+      </div>
+
+      <!-- Genre + Cover -->
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="genre" class="form-label">Genre</label>
+          <input type="text" class="form-control" id="genre" placeholder="Genre" formControlName="genreControl">
         </div>
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label" for="cover">Cover URL</label>
-          <div class="col-10">
-            <input type="text" class="form-control" id="cover" placeholder="Bild-URL"
-                   formControlName="coverControl">
-          </div>
+        <div class="col-md-6">
+          <label for="cover" class="form-label">Cover URL</label>
+          <input type="text" class="form-control" id="cover" placeholder="Bild-URL" formControlName="coverControl">
         </div>
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label" for="status">Status</label>
-          <div class="col-10">
-            <select id="status" 
-                    class="form-select" 
-                    formControlName="statusControl"
-                    [class.is-invalid]="form.controls.statusControl.invalid && form.controls.statusControl.touched"
-                    [class.is-valid]="form.controls.statusControl.valid && form.controls.statusControl.touched"
-                    required>
-              <option value="" disabled>Bitte wählen...</option>
-              <option value="möchte lesen">möchte lesen</option>
-              <option value="lese gerade">lese gerade</option>
-              <option value="gelesen">gelesen</option>
-            </select>
-            <div class="invalid-feedback">
-              Bitte Status auswählen!
-            </div>
-          </div>
+      </div>
+
+      <!-- Status + Rating + Gesamtseiten + Gelesene Seiten -->
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="status" class="form-label">Status</label>
+          <select id="status" class="form-select" formControlName="statusControl">
+            <option value="" disabled>Bitte wählen...</option>
+            <option value="möchte lesen">möchte lesen</option>
+            <option value="lese gerade">lese gerade</option>
+            <option value="gelesen">gelesen</option>
+          </select>
         </div>
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label" for="rating">Rating</label>
-          <div class="col-10">
-            <select class="form-select" id="rating" formControlName="ratingControl"
-                    [class.is-invalid]="form.controls.ratingControl.invalid && form.controls.ratingControl.touched">
-              <option value="" disabled>Bitte auswählen</option>
-              <option value="nicht sicher">Nicht sicher</option>
-              <option value="⭐">⭐</option>
-              <option value="⭐⭐">⭐⭐</option>
-              <option value="⭐⭐⭐">⭐⭐⭐</option>
-              <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
-              <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
-            </select>
-            <div class="invalid-feedback">
-              Bitte ein Rating auswählen!
-            </div>
-          </div>
+        <div class="col-md-3">
+          <label for="rating" class="form-label">Rating</label>
+          <select class="form-select" id="rating"  formControlName="ratingControl">
+            <option value="" disabled>Bitte auswählen</option>
+            <option value="weiß nicht">weiß nicht</option>
+            <option value="⭐">⭐</option>
+            <option value="⭐⭐">⭐⭐</option>
+            <option value="⭐⭐⭐">⭐⭐⭐</option>
+            <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+            <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+          </select>
         </div>
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label" for="pagesTotal">Gesamtseiten</label>
-          <div class="col-10">
-            <input type="number"
-                   id="pagesTotal"
-                   formControlName="pagesTotalControl"
-                   class="form-control"
-                   min="1"
-                   required/>
-      
-          </div>
+
+        <div class="col-md-3">
+          <label for="pagesTotal" class="form-label">Gesamtseiten</label>
+          <input type="number" id="pagesTotal" formControlName="pagesTotalControl" class="form-control" min="1">
         </div>
         
-        <div class="mb-3 row">
-          <label class="col-2 col-form-label" for="pagesRead">Gelesene Seiten</label>
-          <div class="col-10">
-            <input type="number"
-                   id="pagesRead"
-                   formControlName="pagesReadControl"
-                   class="form-control"
-                   min="0"
-                   [max]="form.controls.pagesTotalControl.value"
-                   required/>
-        
-            @if(form.controls.pagesReadControl.invalid && form.controls.pagesReadControl.touched) {
-              <div class="invalid-feedback">
-                @if(form.controls.pagesReadControl.errors?.['required']) {
-                  Bitte angeben wie viele Seiten gelesen wurden!
-                } @else if(form.controls.pagesReadControl.errors?.['max']) {
-                  Gelesene Seiten dürfen nicht größer sein als die Gesamtseiten!
-                }
-              </div>
-            }
-          </div>
+        <div class="col-md-3">
+          <label for="pagesRead" class="form-label">Gelesene Seiten</label>
+          <input type="number" id="pagesRead"formControlName="pagesReadControl" class="form-control" min="0" [max]="form.controls.pagesTotalControl.value"
+          [class.is-invalid]="form.controls.pagesReadControl.invalid && form.controls.pagesReadControl.touched"
+          [class.is-valid]="form.controls.pagesReadControl.valid && form.controls.pagesReadControl.touched"
+          required>
+        @if(form.controls.pagesReadControl.errors?.['required'] && form.controls.pagesReadControl.touched) {
+          <div class="invalid-feedback">Bitte angeben wie viele Seiten gelesen wurden!</div>
+        }
+        @if(form.controls.pagesReadControl.errors?.['max'] && form.controls.pagesReadControl.touched) {
+          <div class="invalid-feedback">Gelesene Seiten dürfen nicht größer sein als die Gesamtseiten!</div>
+        }
         </div>
-        
-        
-        <div class="mb-3">
-          <label for="notes" class="form-label">Notizen </label>
-          <textarea id="notes"
-                    class="form-control"
-                    placeholder="Notizen zum Buch"
-                    formControlName="notesControl"></textarea>
-        </div>
-                  
-        <div class="row gx-0 mt-5">
-          <button type="submit" class="col-5 btn btn-secondary">Aktualisieren</button>
-          <div class="col-2"></div>
-          <button type="button" class="col-5 btn btn-secondary" (click)="cancel() ">Abbrechen</button>
-        </div>
-      </form>
-    </fieldset>
-  </main>
+      </div>
+
+      <!-- Notizen -->
+      <div class="mb-3">
+        <label for="notes" class="form-label">Notizen</label>
+        <textarea id="notes" class="form-control" placeholder="Notizen zum Buch" formControlName="notesControl"></textarea>
+      </div>
+
+      <!-- Buttons -->
+      <div class="d-flex justify-content-between mt-5">
+        <button type="submit" class="btn btn-primary">Aktualisieren</button>
+        <button type="button" class="btn btn-secondary" (click)="cancel()">Abbrechen</button>
+      </div>
+
+    </form>
+  </fieldset>
+</main>

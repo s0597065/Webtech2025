@@ -17,7 +17,7 @@ export class Formular implements OnInit{
   private router = inject (Router)
   book!: Book;
   id: string | null = ''
-  form = new FormGroup({
+  form = new FormGroup({ //erzuegen FormControl-ELemente
     titleControl : new FormControl<string>(''),
     authorControl: new FormControl<string>(''),
     genreControl: new FormControl<string>(''),
@@ -35,7 +35,7 @@ export class Formular implements OnInit{
     this.bs.getOne(this.id!)
     .then( response => {
       this.book = response 
-      this.form.patchValue({
+      this.form.patchValue({ //füllt Formular mit den aktuellen Buchdaten
         titleControl: this.book?.title,
         authorControl: this.book?.author,
         genreControl: this.book?.genre,
@@ -48,16 +48,10 @@ export class Formular implements OnInit{
       })
       return this.book
     })
-    .then( book => {
-      if(!book.title) {
-        this.router.navigate(['/regal']);
-      } else {
-        console.log('book in Formular : ', book )
-      }
-    })
+    .then( book => console.log('book in Formular : ', book ))
   }
 
-  update(): void {
+  update(): void { //liest Werte aus Formular und aktualisiert
     const values = this.form.value;
     this.book.title = values.titleControl!;
     this.book.author = values.authorControl!;

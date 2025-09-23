@@ -9,20 +9,37 @@ export class Backend {
 
   constructor() { }
 
+  //Holt alle Bücher aus Backend
   async getAll(): Promise<Book[]> {
-    let response = await fetch(this.apiURL + '/book');
-    let book = await response.json();
+    let response = await fetch(this.apiURL + '/book'); //ruft API auf
+    let book = await response.json(); //wandelt um
     console.log('book in service (getAll) : ', book)
-    return book;
+    return book; //gibt Promise<Book[]> zurück
   }
 
+  //holt ein Buch anhand id
   async getOne(id: string): Promise<Book> {
     let response = await fetch(this.apiURL + '/book/' + id);
-    let book = await response.json();
+    let book = await response.json(); //wandelt in js um
     console.log('book in service (getOne) : ', book)
     return book;
   }
 
+  //erstellt nues buch
+  async create(newData: Book): Promise<Book> {
+    let response = await fetch(this.apiURL + '/book/' , {
+      method: "POST",
+      body: JSON.stringify(newData), //Buchdaten werden als JSOn geschickt
+      headers: {
+        "Content-Type": "application/json", //signalisiert JSon format
+      },
+    });
+    let book = await response.json();
+    console.log('book in service (create) : ', book)
+    return book; //neu erstelltes Buch mit is
+  }
+
+//updatet Buch anahdn id
   async update(id: string, updateData: Book): Promise<Book> {
     let response = await fetch(this.apiURL + '/book/' + id, {
       method: "PATCH",
@@ -36,6 +53,7 @@ export class Backend {
     return book;
   }
 
+  //löscht Buch anhand id
   async deleteOne(id: string): Promise<{message: string}> {
     let response = await fetch(this.apiURL + '/book/' + id, {
       method: "DELETE"
@@ -45,18 +63,6 @@ export class Backend {
     return message;
   }
 
-  async create(newData: Book): Promise<Book> {
-    let response = await fetch(this.apiURL + '/book/' , {
-      method: "POST",
-      body: JSON.stringify(newData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    let book = await response.json();
-    console.log('book in service (create) : ', book)
-    return book;
-  }
 
 
 }

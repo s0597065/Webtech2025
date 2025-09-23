@@ -18,7 +18,7 @@ export class Hinzufuegen {
   saved: boolean = false
 
 
-  form = new FormGroup({
+  form = new FormGroup({ //definiert alle Eingabefelder
     titleControl : new FormControl<string>('', [Validators.required]),
     authorControl: new FormControl<string>('', [Validators.required]),
     genreControl: new FormControl<string>('', [Validators.required]),
@@ -30,7 +30,7 @@ export class Hinzufuegen {
     coverControl : new FormControl<string>('',[Validators.required])  
 });
 
-create(): void {
+create(): void { //liest alle Werte aus Formular und speichter sie 
   const values = this.form.value;
   console.log('values : ', values)
   this.book.title = values.titleControl || '';

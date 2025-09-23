@@ -1,1 +1,315 @@
-<p>inspiration works!</p>
+@if(saved) {
+  <div class="anzeige-overlay">
+    <div class="anzeige-dialog">
+        <div class="anzeige-content" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="anzeige-header">
+            <h5 class="anzeige-title">Erfolgreich hinzugefügt</h5>
+          </div>
+            <div class="anzeige-body">
+             <p>Das Buch wurde in Ihr Regal hinzugefügt!</p>
+            </div>
+            <div class="anzeige-footer">
+              <button type="button" class="btn" (click)="confirm()">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+<div class="start">
+
+
+    <!-- Herbst 2025 -->
+    <div class="inspiration-container">
+
+      <h2>Beste Bücher für den Herbst 2025</h2>
+  
+      <div class="book-row">
+        <img src="https://m.media-amazon.com/images/I/81SY28F1TzL._SL1500_.jpg"  alt="{{ book.title }}">
+        <div>
+          <h5>The Pumpkin Spice Café</h5>
+          <p>"The Pumpkin Spice Café" erzählt die charmante Geschichte von Jeanie, die von ihrer Tante das namensgebende Café im kleinen Dream Harbor übernimmt und damit ihrem tristen Büroalltag entflieht. Als Neuling bringt sie frischen Wind in die Kleinstadt, doch der mürrische Farmer Logan lässt sich von ihrem sonnigen Gemüt zunächst nicht anstecken—wobei er Jeanie und ihren Kaffee doch nicht ganz vergessen kann. Während sich zwischen den beiden ein „Grumpy meets Sunshine“-Flirt entspinnt, tauchen seltsame Ereignisse rund um das Café auf, die für eine zusätzliche Prise Spannung sorgen. Mit viel herbstlicher Atmosphäre, kleinen Rätseln und liebenswerten Figuren ist das Buch die perfekte Wohlfühllektüre für Fans von Kleinstadt-Romanzen und Cozy-Vibes im Stil von „Gilmore Girls“.</p>
+          <button class="btn" (click)="addToRegal({
+            title: 'The Pumpkin Spice Café',
+            author: 'Laurie Gilmore',
+            coverURL: 'https://m.media-amazon.com/images/I/81SY28F1TzL._SL1500_.jpg',
+            genre:'Roman',
+            pagesTotal: 320
+          })">
+            In persönliches Regal hinzufügen
+          </button>
+        </div>
+      </div>
+  
+
+      <div class="book-row">
+        <img src="https://th.bing.com/th/id/R.1ece71f45c1055336314964f14f7ee32?rik=rrjIEKfhdmLKTQ&pid=ImgRaw&r=0" alt="A Good Girl's Guide to Murder">
+        <div>
+          <h5>A Good Girl's Guide to Murder</h5>
+          <p>„A Good Girl’s Guide to Murder“ begleitet die clevere Schülerin Pippa Fitz-Amobi, die überzeugt ist, dass der vor Jahren als Mörder gebrandmarkte Sal Singh unschuldig ist und ein dunkles Geheimnis hinter dem Verschwinden von Andie Bell steckt. Im Zuge eines Schulprojekts taucht Pip tief in die Machenschaften der Kleinstadt ein, deckt dabei Lügen, Verrat und eine gefährliche Wahrheit auf, die sie immer mehr in Lebensgefahr bringt. Mit twistreichen Wendungen, toxischen Beziehungen und einer nervenaufreibenden Jagd nach der Wahrheit ist das Buch ein spannender Jugendthriller — perfekt für alle, die prickelnde Spannung und überraschende Enthüllungen lieben.</p>
+          <button class="btn" (click)="addToRegal({
+            title: 'A Good Girls Guide to Murder',
+            author: 'Holly Jackson',
+            coverURL: 'https://th.bing.com/th/id/R.1ece71f45c1055336314964f14f7ee32?rik=rrjIEKfhdmLKTQ&pid=ImgRaw&r=0',
+            genre: 'Thriller',
+            pagesTotal: 400
+          })">
+            In persönliches Regal hinzufügen
+          </button>
+        </div>
+      </div>
+  
+
+      <div class="book-row">
+        <img src="https://m.media-amazon.com/images/I/81WGbKrakNL._SL1500_.jpg" alt="Last Light by Chris Coppel">
+        <div>
+          <h5>Last Light</h5>
+          <p>„Last Night“ von Chris Coppel beginnt mit einer scheinbar harmlosen Nacht, die das Leben der Hauptfigur für immer verändert—denn Jeff, ein gescheiterter Autor, trifft draußen im Dunkeln einen mysteriösen Fremden, der ihm einen teuflischen Pakt anbietet: literarischen Erfolg im Austausch gegen seine Seele. Was als verzweifeltes Gebet auf den Kirchentreppen beginnt, entfaltet sich zum düsteren Spiel mit übernatürlichen Kräften und bedrohlicher Atmosphäre, bei dem Jeff immer tiefer in einen Strudel aus Angst, Hoffnung und fatalen Entscheidungen gezogen wird. Mit spannungsgeladener Handlung, psychologischem Nervenkitzel und dem allgegenwärtigen Gefühl, dass die Nacht noch lange nicht vorbei ist, ist der Roman ein packender Thriller für Fans des Übernatürlichen und Faust‘scher Versuchungen.</p>
+          <button class="btn" (click)="addToRegal({
+            title: 'Last Light',
+            author: 'Chris Coppel',
+            coverURL: 'https://m.media-amazon.com/images/I/81WGbKrakNL._SL1500_.jpg',
+            genre: 'Horror',
+            pagesTotal: 260
+          })">
+            In persönliches Regal hinzufügen
+          </button>
+        </div>
+      </div>
+  
+
+      <div class="book-row">
+        <img src="https://tse1.mm.bing.net/th/id/OIP.jOsFDFT686RwMQvMbR3aigHaLa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="You, Again by Kate Goldbeck">
+        <div>
+          <h5>You, Again</h5>
+          <p>„You Again“ von Kate Goldbeck ist eine humorvolle und charmante Enemies-to-Friends-to-Lovers-Romance rund um Ari, eine bindungsscheue Stand-up-Comedian, und Josh, einen hoffnungslosen Romantiker mit Vorliebe für feste Beziehungen. Die beiden könnten nicht unterschiedlicher sein—außer, dass sie einst mit derselben Frau geschlafen haben und sich anfangs überhaupt nicht ausstehen können. Doch nach zahlreichen zufälligen Begegnungen in New York, stundenlangen Netflix-Sessions und Gesprächen über Herzschmerz und Alltagschaos entwickelt sich aus ihrer Feindschaft langsam eine tiefe Freundschaft, die schließlich ihre Grenzen überschreitet. Mit bissigen Dialogen, viel Chaos und sexy, verletzlichen Momenten ist diese Liebesgeschichte ein warmes, modernes Debüt für alle Fans schräger Slow-Burn-Romantik.</p>
+          <button class="btn" (click)="addToRegal({
+            title: 'You, Again',
+            author: 'Kate Goldbeck',
+            coverURL: 'https://tse1.mm.bing.net/th/id/OIP.jOsFDFT686RwMQvMbR3aigHaLa?rs=1&pid=ImgDetMain&o=7&rm=3',
+            genre: 'Romantik',
+            pagesTotal: 320
+          })">
+            In persönliches Regal hinzufügen
+          </button>
+        </div>
+      </div>
+  
+
+      <div class="book-row">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.WWxPiMroO2U_4dvQ_a-_sAHaLM?rs=1&pid=ImgDetMain&o=7&rm=3" alt="The Midnight Library by Matt Haig">
+        <div>
+          <h5>The Midnight Library</h5>
+          <p>„The Midnight Library“ von Matt Haig folgt Nora Seed, die nach einem gescheiterten Leben voller Reue und Trauer an einem Wendepunkt steht und beschließt, ihrem Leben ein Ende zu setzen. Doch statt ins Nichts zu verschwinden, landet sie in einer magischen Bibliothek—einem Zwischenreich, in dem jedes Buch ein Leben darstellt, das sie hätte führen können, wenn sie andere Entscheidungen getroffen hätte. Auf ihrer Reise durch alternative Realitäten erlebt Nora, dass jedes Leben gute und schlechte Seiten hat und wahres Glück nicht darin liegt, alles anders zu machen, sondern sich selbst zu akzeptieren. Mit berührenden Botschaften und fantastischem Setting regt der Roman dazu an, über das eigene Leben und die Kraft der Selbstakzeptanz nachzudenken.</p>
+          <button class="btn" (click)="addToRegal({
+            title: 'The Midnight Library',
+            author: 'Matt Haig',
+            coverURL: 'https://tse2.mm.bing.net/th/id/OIP.WWxPiMroO2U_4dvQ_a-_sAHaLM?rs=1&pid=ImgDetMain&o=7&rm=3',
+            genre: 'Fantasy',
+            pagesTotal: 300
+          })">
+            In persönliches Regal hinzufügen
+          </button>
+        </div>
+      </div>
+  
+    </div>
+  
+    <!-- Winter 2025 -->
+    <div class="inspiration-container">
+
+      <h2>Beste Bücher für den Winter 2025</h2>
+  
+
+          <div class="book-row">
+            <img src="https://tse2.mm.bing.net/th/id/OIP.3UzCQobtlRkkAHDOulPB1QHaLX?rs=1&pid=ImgDetMain&o=7&rm=3" alt="One Day in December">
+            <div>
+              <h5>One Day in December</h5>
+              <p>Als Laurie an einem nebligen Dezembermorgen im Londoner Bus sitzt, fängt ihr Blick einen Fremden am Buswartehäuschen ein — und für einen magischen Moment scheint die Zeit stillzustehen. Doch bevor sie überhaupt sprechen können, fährt der Bus weiter und trennt die beiden wieder. Laurie ist sich sicher, dass dieser Augenblick kein Zufall war, und widmet ein ganzes Jahr der Suche nach dem geheimnisvollen Mann. Doch das Schicksal spielt anders: Beim Weihnachtsfest ihrer besten Freundin Sarah trifft sie ihn wieder — als Sarahs neuen Freund Jack. Über zehn Jahre begleiten wir Laurie, Jack und Sarah durch Freundschaft, Herzschmerz, verpasste Chancen und überraschende Wendungen, die zeigen, dass Liebe oft andere Wege nimmt als geplant. „One Day in December“ ist eine herzerwärmende, bewegende Geschichte über das Finden und Verlieren von Liebe inmitten des alltäglichen Chaos.</p>
+              <button class="btn" (click)="addToRegal({
+                title: 'One Day in December',
+                author: 'Josie Silver',
+                coverURL: 'https://tse2.mm.bing.net/th/id/OIP.3UzCQobtlRkkAHDOulPB1QHaLX?rs=1&pid=ImgDetMain&o=7&rm=3',
+                genre: 'Romantik',
+                pagesTotal: 480
+              })">
+                In persönliches Regal hinzufügen
+              </button>
+            </div>
+          </div>
+  
+
+          <div class="book-row">
+            <img src="https://m.media-amazon.com/images/I/81H1NE8lPSL._SL1500_.jpg" alt="Dead of Winter">
+            <div>
+              <h5>Dead of Winter</h5>
+              <p>In diesem fesselnden Thriller von Daryl Coates wird die Polizei einer verschneiten Kleinstadt mit einer Serie mysteriöser Todesfälle konfrontiert. Detective Alex Harper kämpft gegen eisige Temperaturen und noch eisigere Geheimnisse, während sich die Spuren von Mord und Verrat über verschneite Straßen und dunkle Wälder ziehen. Jeder Schritt bringt neue Wendungen, die die Spannung konstant hochhalten, und Coates erschafft eine atmosphärisch dichte, packende Geschichte, die die Leser bis zur letzten Seite fesselt.</p>
+              <button class="btn" (click)="addToRegal({
+                title: 'Dead of Winter',
+                author: 'Daryl Coates',
+                coverURL: 'https://m.media-amazon.com/images/I/81H1NE8lPSL._SL1500_.jpg',
+                genre: 'Thriller',
+                pagesTotal: 420
+              })">
+                In persönliches Regal hinzufügen
+              </button>
+            </div>
+          </div>
+  
+
+          <div class="book-row">
+            <img src="https://hachette.imgix.net/books/9780349426860.jpg?auto=compress,format" alt="In a Holidaze">
+            <div>
+              <h5>In a Holidaze</h5>
+              <p>„In a Holidaze“ von Christina Lauren erzählt von Maelyn Jones, die Weihnachten eigentlich liebt, doch diesmal ist alles anders: Sie hat ausgerechnet den Falschen unterm Mistelzweig geküsst und dazu droht die geliebte Hütte in den verschneiten Bergen Utahs verkauft zu werden. Verzweifelt bittet Maelyn das Universum um Hilfe – und findet sich plötzlich in einer Zeitschleife wieder, in der sie das Weihnachtsfest immer wieder erlebt, um herauszufinden, was sie wirklich glücklich macht. Zwischen winterlicher Stimmung, chaotischen Missgeschicken und überraschenden Gefühlen entdeckt sie sich selbst neu, während sie versucht, ihr Herz und ihr Leben in den Griff zu bekommen. Der Roman verbindet mit viel Charme, Witz und (be)sinnlicher Romantik die perfekte Wohlfühlatmosphäre für die Weihnachtszeit.</p>
+              <button class="btn" (click)="addToRegal({
+                title: 'In a Holidaze',
+                author: 'Kate Marsh',
+                coverURL: 'https://hachette.imgix.net/books/9780349426860.jpg?auto=compress,format',
+                genre: 'Romantik / Weihnachtsgeschichte',
+                pagesTotal: 360
+              })">
+                In persönliches Regal hinzufügen
+              </button>
+            </div>
+          </div>
+  
+
+          <div class="book-row">
+            <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1521066996i/39082248.jpg">
+            <div>
+              <h5>Moon of the Crusted Snow</h5>
+              <p>Waubgeshig Rice erzählt in diesem eindringlichen Roman von einem nördlichen Indigenous-Dorf, das plötzlich von Stromausfällen und dem Zusammenbruch der modernen Zivilisation betroffen ist. Während die Gemeinschaft versucht, ihre Traditionen und ihr Wissen zu bewahren, wächst die Bedrohung von außen. Die Geschichte kombiniert Spannung, kulturelle Tiefe und menschliche Dramen und zeigt, wie Resilienz, Zusammenhalt und kulturelles Erbe selbst in den dunkelsten Momenten Hoffnung geben können.</p>
+              <button class="btn" (click)="addToRegal({
+                title: 'Moon of the Crusted Snow',
+                author: 'Waubgeshig Rice',
+                coverURL: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1521066996i/39082248.jpg',
+                genre: 'Dystopie / Thriller',
+                pagesTotal: 320
+              })">
+                In persönliches Regal hinzufügen
+              </button>
+            </div>
+          </div>
+  
+          <div class="book-row">
+            <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1655047564i/61273863.jpg" alt="The Writing Retreat">
+            <div>
+              <h5>The Writing Retreat</h5>
+              <p>Julia Bartz entführt ihre Leser in ein abgelegenes Schreib-Retreat, wo sechs Autorinnen aufeinandertreffen, um ihre kreativen Projekte zu beenden. Doch unter der idyllischen Oberfläche brodeln Geheimnisse, Eifersucht und gefährliche Intrigen. Als ein Mord geschieht, müssen die Teilnehmerinnen erkennen, dass nicht nur ihre Geschichten auf dem Spiel stehen, sondern ihr Leben selbst. Ein spannender Thriller voller Psychospannung, cleverer Wendungen und dunkler Geheimnisse.</p>
+              <button class="btn" (click)="addToRegal({
+                title: 'The Writing Retreat',
+                author: 'Julia Bartz',
+                coverURL: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1655047564i/61273863.jpg',
+                genre: 'Thriller',
+                pagesTotal: 400
+              })">
+                In persönliches Regal hinzufügen
+              </button>
+            </div>
+          </div>
+  
+    </div>
+
+
+  
+    <!-- Klassikbücher für Einsteiger -->
+    <div class="inspiration-container">
+
+      <h2>Beste Klassikbücher für Einsteiger</h2>
+  
+
+          <div class="book-row">
+            <img src="https://www.volksfreund.de/imgs/28/1/0/2/8/3/4/4/3/7/tok_97427a056ec767fb7e6d226c3c4f9aed/w1900_h2755_x1100_y1595_38586477-354fcd62f9a6ddab.jpg" alt="Der kleine Prinz">
+            <div>
+              <h5>Der kleine Prinz</h5>
+              <p>Antoine de Saint-Exupérys „Der kleine Prinz“ ist weit mehr als ein Kinderbuch – es ist eine poetische Parabel über Freundschaft, Liebe und den Sinn des Lebens. In der Geschichte trifft ein in der Wüste abgestürzter Pilot auf einen kleinen Prinzen von einem fernen Planeten. Dieser erzählt von seinen Reisen zu verschiedenen Welten, auf denen er Begegnungen mit Figuren macht, die menschliche Schwächen und Eigenheiten symbolisieren: dem König ohne Untertanen, dem eitlen Mann, dem Geschäftsmann, der nur Zahlen liebt. All diese Figuren spiegeln die Absurditäten der erwachsenen Welt wider. Gleichzeitig vermittelt das Buch tiefe Lebensweisheiten über das Wesentliche, das „für die Augen unsichtbar“ bleibt, und die Bedeutung von Verantwortung und Zuwendung. In einer einfachen Sprache, die zugleich poetisch und philosophisch ist, rührt dieses Werk Leserinnen und Leser weltweit seit Generationen an und gehört zu den meistgelesenen Büchern der Welt.</p>
+              <button class="btn" (click)="addToRegal({
+                title: 'Der kleine Prinz',
+                author: 'Antoine de Saint-Exupéry',
+                coverURL: 'https://www.volksfreund.de/imgs/28/1/0/2/8/3/4/4/3/7/tok_97427a056ec767fb7e6d226c3c4f9aed/w1900_h2755_x1100_y1595_38586477-354fcd62f9a6ddab.jpg',
+                genre: 'Klassiker / Fabel',
+                pagesTotal: 120
+              })">
+                In persönliches Regal hinzufügen
+              </button>
+            </div>
+          </div>
+
+
+          <div class="book-row">
+            <img src="https://tse1.mm.bing.net/th/id/OIP.jWS3UWyTkycZ_fv98f0xlwHaL7?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Der große Gatsby">
+            <div>
+              <h5>Der große Gatsby</h5>
+              <p>F. Scott Fitzgeralds „Der große Gatsby“ ist ein Meisterwerk der modernen Literatur und gilt als das große Porträt der „Roaring Twenties“ in den USA. Erzählt wird die Geschichte des geheimnisvollen Millionärs Jay Gatsby, der mit opulenten Partys versucht, die Aufmerksamkeit seiner großen Liebe Daisy Buchanan zurückzugewinnen. Hinter der glitzernden Fassade seiner Villa offenbart sich jedoch eine Tragödie: Gatsby ist ein Mann, der alles opfert, um eine romantische Illusion am Leben zu erhalten. Fitzgerald zeigt eindringlich die Schattenseiten des „American Dream“, die Oberflächlichkeit einer Gesellschaft, die vom Streben nach Reichtum und Status zerfressen wird, und die Einsamkeit eines Menschen, der sich nach echter Nähe sehnt. Mit seiner dichten Symbolik, seinem melancholischen Ton und seiner zeitlosen Thematik bleibt „Der große Gatsby“ ein Roman von ungebrochener Aktualität.</p>
+              <button class="btn" (click)="addToRegal({
+                title: 'Der große Gatsby',
+                author: 'F. Scott Fitzgerald',
+                coverURL: 'https://tse1.mm.bing.net/th/id/OIP.jWS3UWyTkycZ_fv98f0xlwHaL7?rs=1&pid=ImgDetMain&o=7&rm=3',
+                genre: 'Klassiker / Gesellschaftsroman',
+                pagesTotal: 220
+              })">
+                In persönliches Regal hinzufügen
+              </button>
+            </div>
+          </div>
+
+          <div class="book-row">
+            <img src="https://www.buchhaus.ch/annotstream/9783868207934/COPL/Dumas-Der-J%C3%BCngere-Alexandre-Author/Die-Kameliendame.jpg?sq=1" alt="La Dame aux Camélias">
+            <div>
+              <h5>La Dame aux Camélias</h5>
+              <p>Alexandre Dumas der Jüngere erschuf mit „La Dame aux Camélias“ eine der bekanntesten Liebestragödien des 19. Jahrhunderts. Die Geschichte handelt von der schönen Kurtisane Marguerite Gautier, die in den Pariser Salons für ihren Glanz und ihre Eleganz berühmt ist, aber zugleich an einer schweren Krankheit leidet. Als sie den jungen Armand Duval kennenlernt, scheint sie in seiner aufrichtigen Liebe eine Möglichkeit zu finden, ihrem oberflächlichen Leben zu entfliehen. Doch gesellschaftliche Zwänge, Vorurteile und die eigene Gesundheit machen dieser Hoffnung ein Ende. Der Roman, der als Vorlage für Verdis Oper „La Traviata“ diente, thematisiert die Sehnsucht nach wahrer Liebe in einer Gesellschaft, die von Doppelmoral und Standesdenken geprägt ist. Mit seiner emotionalen Tiefe, seiner tragischen Heldenfigur und der packenden Darstellung einer unmöglichen Liebe bewegt dieses Werk bis heute Generationen von Lesern.</p>
+              <button class="btn" (click)="addToRegal({
+                title: 'La Dame aux Camélias',
+                author: 'Alexandre Dumas fils',
+                coverURL: 'https://www.buchhaus.ch/annotstream/9783868207934/COPL/Dumas-Der-J%C3%BCngere-Alexandre-Author/Die-Kameliendame.jpg?sq=1',
+                genre: 'Klassiker / Tragödie',
+                pagesTotal: 350
+              })">
+                In persönliches Regal hinzufügen
+              </button>
+            </div>
+          </div>
+
+
+          <div class="book-row">
+            <img src="https://www.diogenes.ch/.imaging/diogenesTitleDetailMedia/titel/friedrich-duerrenmatt/der-besuch-der-alten-dame-9783257208351.jpg" alt="Der Besuch der alten Dame">
+            <div>
+              <h5>Der Besuch der alten Dame</h5>
+              <p>Friedrich Dürrenmatts berühmtes Theaterstück „Der Besuch der alten Dame“ ist ein eindringliches Gleichnis über Gerechtigkeit, Vergeltung und die moralische Korruption einer ganzen Gesellschaft. In der Handlung kehrt die Milliardärin Claire Zachanassian in ihre heruntergekommene Heimatstadt zurück, die in bitterer Armut lebt. Sie bietet den Bewohnern ein Vermögen, unter einer Bedingung: Sie sollen den Mann töten, der sie einst verraten hat. Zunächst entrüstet, beginnen die Bürger langsam, ihre moralischen Skrupel über Bord zu werfen, verstricken sich in Lügen und Selbstrechtfertigungen – bis die Entscheidung unausweichlich scheint. Dürrenmatt stellt in bitterem Humor und mit schonungsloser Klarheit die Frage, wie weit Menschen gehen, wenn Geld und Macht im Spiel sind. Dieses Werk ist nicht nur ein Klassiker der modernen Dramatik, sondern auch eine erschreckend aktuelle Allegorie auf Korruption und Moralverfall.</p>
+              <button class="btn" (click)="addToRegal({
+                title: 'Der Besuch der alten Dame',
+                author: 'Friedrich Dürrenmatt',
+                coverURL: 'https://www.diogenes.ch/.imaging/diogenesTitleDetailMedia/titel/friedrich-duerrenmatt/der-besuch-der-alten-dame-9783257208351.jpg',
+                genre: 'Drama',
+                pagesTotal: 160
+              })">
+                In persönliches Regal hinzufügen
+              </button>
+            </div>
+          </div>
+
+
+          <div class="book-row">
+            <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1520885386l/39171724._SY475_.jpg" alt="Schachnovelle">
+            <div>
+              <h5>Schachnovelle</h5>
+              <p>Stefan Zweigs „Schachnovelle“ gilt als das letzte große Werk des Autors und ist ein psychologisches Meisterstück von bedrückender Intensität. Auf einem Schiff nach Buenos Aires treffen die Passagiere auf den Schachweltmeister Mirko Czentovic, einen einfältigen, aber genialen Spieler. Als er herausgefordert wird, tritt ein geheimnisvoller Mitreisender gegen ihn an: Dr. B., der während seiner Gefangenschaft durch die Nazis in völliger Isolation mit einem Schachbuch überlebt hat. Das Schachspiel wird für ihn zur Obsession und Rettung, aber auch zur Quelle seelischer Zerrüttung. In dieser Konfrontation prallen zwei Welten aufeinander – stumpfe Genialität und traumatisierte Brillanz. Zweig gelingt es, die Abgründe von Isolation, Zwang und geistiger Not in einer beklemmenden Intensität darzustellen, die bis heute nachhallt. „Schachnovelle“ ist ein Werk über menschliche Würde, geistigen Widerstand und die zerstörerische Macht totalitärer Systeme.</p>
+              <button class="btn" (click)="addToRegal({
+                title: 'Schachnovelle',
+                author: 'Stefan Zweig',
+                coverURL: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1520885386l/39171724._SY475_.jpg',
+                genre: 'Novelle / Psychologie',
+                pagesTotal: 100
+              })">
+                In persönliches Regal hinzufügen
+              </button>
+            </div>
+          </div>
+
+    </div>
+
+  
+</div>
+
+

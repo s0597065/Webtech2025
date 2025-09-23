@@ -1,10 +1,10 @@
 const express = require('express');
-const router = express.Router();
-const Book = require('./models/book');
+const router = express.Router(); //erstellt Router, auf dem Endpunkte definiert
+const Book = require('./models/book'); //importiert Book-Modell, um mit MongoDB-Collection zu arbeiten
 
 //read all (GET)
 router.get('/book', async(req, res) => { //definiert Route, die auf GET-Anfragen reagiert, req: enthält Anfrageinfos, res: Antwort an Client senden, async: für await
-    const allBooks = await Book.find(); //Mongoose-Aufruf, await pausiert Ausführung bis Datenbank-Abfrage abgeschlossen, const allBooks speichert Ergebnis
+    const allBooks = await Book.find(); //Mongoose-Aufruf, await pausiert Ausführung bis Datenbank-Abfrage abgeschlossen, const allBooks speichert Array mit allen Büchern
     console.log(allBooks); //gibt Ergebnis in Konsole aus
     res.send(allBooks); //Sendet Antwort an Client
 });
@@ -12,18 +12,21 @@ router.get('/book', async(req, res) => { //definiert Route, die auf GET-Anfragen
 //read one (GET mit id)
 router.get('/book/:id', async(req, res) => {
     try {
-        const book = await Book.findOne({ _id: req.params.id });
+        const book = await Book.findOne({ _id: req.params.id }); //Sucht Dokument in Collection dessen id mit URL übereinstimmt
+        //Wenn gefunden
         if(book) {
             res.send(book);
+            //Wenn Buch nicht existiert
         } else {
-            res.status(404);
+            res.status(404); //Not found
             res.send({
                 error: "Ups, es ist ein Fehler aufgetreten"
             });
         }
+        //Wenn ID ungültig
     } catch (err) {
         console.error(err);
-        res.status(400);
+        res.status(400); //bad request
         res.send({
              error: "Buch noch nicht im Regal"
         }); // ungültige ObjectId
@@ -32,8 +35,8 @@ router.get('/book/:id', async(req, res) => {
 
 //create (POST)
 router.post('/book', async(req, res) => { //definiert Route, die auf POST-Anfragen reagiert
-    console.log("Headers:", req.headers);
-    console.log("Body:", req.body);
+    console.log("Headers:", req.headers); //Nur zum Testen
+    console.log("Body:", req.body); //Nur zum Testen
     const newBook = new Book({
         title: req.body.title,
         author: req.body.author,
