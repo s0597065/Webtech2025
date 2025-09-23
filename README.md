@@ -1,5 +1,5 @@
 # Literary Love - Webseite zum Verwalten von Büchern
-Literary Love ist ein Paradies für alle Buchliebhaber. Die persönliche Bibliothek ermöglicht es Nutzern den perfekten Überblick über alle Bücher zu behalten, egal ob aktuelle Lektüre, Lesewunsch oder bereits ein gelesenes Buch. Literary Love ermöglicht ihren Nutzern durch ihr schlichtes und zugleich modernes Design sowie den vielen Funktionalitäten und der eigenen Inspirationsseite eine ausgezeichnete Nutzererfahrung. 
+Literary Love ist ein Paradies für alle Buchliebhaber. Die persönliche Bibliothek ermöglicht es Nutzern den perfekten Überblick über alle Bücher zu behalten, egal ob aktuelle Lektüre, Lesewunsch oder bereits ein gelesenes Buch. Literary Love ermöglicht durch ihr schlichtes und zugleich modernes Design sowie den vielen Funktionalitäten und der eigenen Inspirationsseite eine ausgezeichnete Nutzererfahrung. 
 
 ## Features
 - Alle Bücher im Regal einsehen
