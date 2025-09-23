@@ -21,7 +21,8 @@ Literary Love ist ein Paradies für alle Buchliebhaber. Die persönliche Bibliot
 - **Datenbank:** MongoDB Atlas
 
 ## Screenshots
-Startseite
+### Startseite
+![startseite](./screenshots/startseite.png)
 
 Regal
 
@@ -54,7 +55,7 @@ Inspiration
   
 ## KI-Nutzung
 1. **Perplexity.ai:** Beschreibungen der Bücher für die Inspirationsseite, 
-2. **Chat GPT:** Erklärungen zu Fehlermedldungen, Codeoptimierung, 
+2. **Chat GPT:** Erklärungen zu Fehlermeldungen, Codeoptimierung, 
 
 ## Künftige Erwetierungen
 - Registrierung
@@ -62,6 +63,5 @@ Inspiration
 - Favicon einbinden
 
 ## Autorin
-Diana Kraus
-'Projekt für das Modul Webtechnologien'
+Diana Kraus - Projekt für das Modul Webtechnologien
 
